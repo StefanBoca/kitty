@@ -54,6 +54,7 @@ typedef struct {
     xkb_mod_index_t         altIdx;
     xkb_mod_index_t         shiftIdx;
     xkb_mod_index_t         superIdx;
+    xkb_mod_index_t         hyperIdx;
     xkb_mod_index_t         capsLockIdx;
     xkb_mod_index_t         numLockIdx;
     xkb_mod_mask_t          controlMask;

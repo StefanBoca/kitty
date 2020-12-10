@@ -554,11 +554,13 @@ extern "C" {
 #define GLFW_KEY_LEFT_CONTROL       341
 #define GLFW_KEY_LEFT_ALT           342
 #define GLFW_KEY_LEFT_SUPER         343
-#define GLFW_KEY_RIGHT_SHIFT        344
-#define GLFW_KEY_RIGHT_CONTROL      345
-#define GLFW_KEY_RIGHT_ALT          346
-#define GLFW_KEY_RIGHT_SUPER        347
-#define GLFW_KEY_MENU               348
+#define GLFW_KEY_LEFT_HYPER         344
+#define GLFW_KEY_RIGHT_SHIFT        345
+#define GLFW_KEY_RIGHT_CONTROL      346
+#define GLFW_KEY_RIGHT_ALT          347
+#define GLFW_KEY_RIGHT_SUPER        348
+#define GLFW_KEY_RIGHT_HYPER        349
+#define GLFW_KEY_MENU               350
 
 #define GLFW_KEY_LAST               GLFW_KEY_MENU
 
@@ -592,6 +594,11 @@ extern "C" {
  *  If this bit is set one or more Super keys were held down.
  */
 #define GLFW_MOD_SUPER           0x0008
+/*! @brief If this bit is set one or more Hyper keys were held down.
+ *
+ *  If this bit is set one or more Hyper keys were held down.
+ */
+#define GLFW_MOD_HYPER           0x0040
 /*! @brief If this bit is set the Caps Lock key is enabled.
  *
  *  If this bit is set the Caps Lock key is enabled and the @ref

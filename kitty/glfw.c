@@ -243,6 +243,9 @@ key_to_modifier(int key) {
         case GLFW_KEY_LEFT_SUPER:
         case GLFW_KEY_RIGHT_SUPER:
             return GLFW_MOD_SUPER;
+        case GLFW_KEY_LEFT_HYPER:
+        case GLFW_KEY_RIGHT_HYPER:
+            return GLFW_MOD_HYPER;
         default:
             return -1;
     }
@@ -1452,10 +1455,12 @@ init_glfw(PyObject *m) {
     ADDC(GLFW_KEY_LEFT_CONTROL);
     ADDC(GLFW_KEY_LEFT_ALT);
     ADDC(GLFW_KEY_LEFT_SUPER);
+    ADDC(GLFW_KEY_LEFT_HYPER);
     ADDC(GLFW_KEY_RIGHT_SHIFT);
     ADDC(GLFW_KEY_RIGHT_CONTROL);
     ADDC(GLFW_KEY_RIGHT_ALT);
     ADDC(GLFW_KEY_RIGHT_SUPER);
+    ADDC(GLFW_KEY_RIGHT_HYPER);
     ADDC(GLFW_KEY_MENU);
     ADDC(GLFW_KEY_LAST);
 
@@ -1464,6 +1469,7 @@ init_glfw(PyObject *m) {
     ADDC(GLFW_MOD_CONTROL);
     ADDC(GLFW_MOD_ALT);
     ADDC(GLFW_MOD_SUPER);
+    ADDC(GLFW_MOD_HYPER);
     ADDC(GLFW_MOD_KITTY);
 
 // --- Mouse -------------------------------------------------------------------

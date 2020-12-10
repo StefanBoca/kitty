@@ -26,7 +26,7 @@ MINIMUM_FONT_SIZE = 4
 
 
 mod_map = {'CTRL': 'CONTROL', 'CMD': 'SUPER', '⌘': 'SUPER',
-           '⌥': 'ALT', 'OPTION': 'ALT', 'KITTY_MOD': 'KITTY'}
+           '⌥': 'ALT', 'OPTION': 'ALT', 'HYPER': 'HYPER', 'KITTY_MOD': 'KITTY'}
 
 
 def to_cmdline(x: str) -> List[str]:

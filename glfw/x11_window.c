@@ -197,6 +197,8 @@ static int translateState(int state)
         mods |= GLFW_MOD_CAPS_LOCK;
     if (state & Mod2Mask)
         mods |= GLFW_MOD_NUM_LOCK;
+    if (state & Mod3Mask)
+        mods |= GLFW_MOD_HYPER;
 
     return mods;
 }

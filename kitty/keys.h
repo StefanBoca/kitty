@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <limits.h>
 // map glfw key numbers to 7-bit numbers for compact data storage
-static const uint8_t key_map[349] = {
+static const uint8_t key_map[351] = {
 UINT8_MAX,
 UINT8_MAX,
 UINT8_MAX,
@@ -350,11 +350,13 @@ UINT8_MAX,
 176, /* LEFT_CONTROL */
 177, /* LEFT_ALT */
 178, /* LEFT_SUPER */
-179, /* RIGHT_SHIFT */
-180, /* RIGHT_CONTROL */
-181, /* RIGHT_ALT */
-182, /* RIGHT_SUPER */
-183, /* MENU */
+179, /* LEFT_HYPER */ 
+180, /* RIGHT_SHIFT */
+181, /* RIGHT_CONTROL */
+182, /* RIGHT_ALT */
+183, /* RIGHT_SUPER */
+184, /* RIGHT_HYPER */
+185, /* MENU */
 };
 
 static inline const char* key_name(int key) { switch(key) {
@@ -537,11 +539,13 @@ case 340: return "LEFT_SHIFT";
 case 341: return "LEFT_CONTROL";
 case 342: return "LEFT_ALT";
 case 343: return "LEFT_SUPER";
-case 344: return "RIGHT_SHIFT";
-case 345: return "RIGHT_CONTROL";
-case 346: return "RIGHT_ALT";
-case 347: return "RIGHT_SUPER";
-case 348: return "MENU";
+case 344: return "LEFT_HYPER";
+case 345: return "RIGHT_SHIFT";
+case 346: return "RIGHT_CONTROL";
+case 347: return "RIGHT_ALT";
+case 348: return "RIGHT_SUPER";
+case 349: return "RIGHT_HYPER";
+case 350: return "MENU";
 default: return NULL; }}
 
 typedef enum { NORMAL, APPLICATION, EXTENDED } KeyboardMode;
@@ -7365,11 +7369,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x41\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x41\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x41\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x41\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x41\x42\x68";
                     } // end switch(key)
                   case 0x1:
@@ -7502,11 +7506,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x42\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x42\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x42\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x42\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x42\x42\x68";
                     } // end switch(key)
                   case 0x2:
@@ -7867,11 +7871,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x45\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x45\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x45\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x45\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x45\x42\x68";
                     } // end switch(key)
                   case 0x3:
@@ -8232,11 +8236,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x46\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x46\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x46\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x46\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x46\x42\x68";
                     } // end switch(key)
                   case 0x4:
@@ -8597,11 +8601,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x43\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x43\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x43\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x43\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x43\x42\x68";
                     } // end switch(key)
                   case 0x5:
@@ -8962,11 +8966,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x44\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x44\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x44\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x44\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x44\x42\x68";
                     } // end switch(key)
                   case 0x6:
@@ -9327,11 +9331,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x47\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x47\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x47\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x47\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x47\x42\x68";
                     } // end switch(key)
                   case 0x7:
@@ -9692,11 +9696,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x48\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x48\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x48\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x48\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x48\x42\x68";
                     } // end switch(key)
                   case 0x8:
@@ -10057,11 +10061,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x49\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x49\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x49\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x49\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x49\x42\x68";
                     } // end switch(key)
                   case 0x9:
@@ -10422,11 +10426,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x4a\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x4a\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x4a\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x4a\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x4a\x42\x68";
                     } // end switch(key)
                   case 0xa:
@@ -10787,11 +10791,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x4d\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x4d\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x4d\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x4d\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x4d\x42\x68";
                     } // end switch(key)
                   case 0xb:
@@ -11152,11 +11156,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x4e\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x4e\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x4e\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x4e\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x4e\x42\x68";
                     } // end switch(key)
                   case 0xc:
@@ -11517,11 +11521,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x4b\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x4b\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x4b\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x4b\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x4b\x42\x68";
                     } // end switch(key)
                   case 0xd:
@@ -11882,11 +11886,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x4c\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x4c\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x4c\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x4c\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x4c\x42\x68";
                     } // end switch(key)
                   case 0xe:
@@ -12247,11 +12251,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x4f\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x4f\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x4f\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x4f\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x4f\x42\x68";
                     } // end switch(key)
                   case 0xf:
@@ -12612,11 +12616,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x72\x50\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x72\x50\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x72\x50\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x72\x50\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x72\x50\x42\x68";
                     } // end switch(key)
               }  // end switch(mods)
@@ -12754,11 +12758,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x41\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x41\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x41\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x41\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x41\x42\x68";
                     } // end switch(key)
                   case 0x1:
@@ -12891,11 +12895,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x42\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x42\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x42\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x42\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x42\x42\x68";
                     } // end switch(key)
                   case 0x2:
@@ -13256,11 +13260,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x45\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x45\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x45\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x45\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x45\x42\x68";
                     } // end switch(key)
                   case 0x3:
@@ -13621,11 +13625,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x46\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x46\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x46\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x46\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x46\x42\x68";
                     } // end switch(key)
                   case 0x4:
@@ -13986,11 +13990,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x43\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x43\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x43\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x43\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x43\x42\x68";
                     } // end switch(key)
                   case 0x5:
@@ -14351,11 +14355,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x44\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x44\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x44\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x44\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x44\x42\x68";
                     } // end switch(key)
                   case 0x6:
@@ -14716,11 +14720,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x47\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x47\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x47\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x47\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x47\x42\x68";
                     } // end switch(key)
                   case 0x7:
@@ -15081,11 +15085,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x48\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x48\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x48\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x48\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x48\x42\x68";
                     } // end switch(key)
                   case 0x8:
@@ -15446,11 +15450,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x49\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x49\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x49\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x49\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x49\x42\x68";
                     } // end switch(key)
                   case 0x9:
@@ -15811,11 +15815,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x4a\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x4a\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x4a\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x4a\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x4a\x42\x68";
                     } // end switch(key)
                   case 0xa:
@@ -16176,11 +16180,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x4d\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x4d\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x4d\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x4d\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x4d\x42\x68";
                     } // end switch(key)
                   case 0xb:
@@ -16541,11 +16545,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x4e\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x4e\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x4e\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x4e\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x4e\x42\x68";
                     } // end switch(key)
                   case 0xc:
@@ -16906,11 +16910,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x4b\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x4b\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x4b\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x4b\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x4b\x42\x68";
                     } // end switch(key)
                   case 0xd:
@@ -17271,11 +17275,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x4c\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x4c\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x4c\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x4c\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x4c\x42\x68";
                     } // end switch(key)
                   case 0xe:
@@ -17636,11 +17640,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x4f\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x4f\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x4f\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x4f\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x4f\x42\x68";
                     } // end switch(key)
                   case 0xf:
@@ -18001,11 +18005,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x70\x50\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x70\x50\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x70\x50\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x70\x50\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x70\x50\x42\x68";
                     } // end switch(key)
               }  // end switch(mods)
@@ -18143,11 +18147,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x41\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x41\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x41\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x41\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x41\x42\x68";
                     } // end switch(key)
                   case 0x1:
@@ -18280,11 +18284,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x42\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x42\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x42\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x42\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x42\x42\x68";
                     } // end switch(key)
                   case 0x2:
@@ -18645,11 +18649,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x45\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x45\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x45\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x45\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x45\x42\x68";
                     } // end switch(key)
                   case 0x3:
@@ -19010,11 +19014,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x46\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x46\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x46\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x46\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x46\x42\x68";
                     } // end switch(key)
                   case 0x4:
@@ -19375,11 +19379,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x43\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x43\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x43\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x43\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x43\x42\x68";
                     } // end switch(key)
                   case 0x5:
@@ -19740,11 +19744,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x44\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x44\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x44\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x44\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x44\x42\x68";
                     } // end switch(key)
                   case 0x6:
@@ -20105,11 +20109,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x47\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x47\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x47\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x47\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x47\x42\x68";
                     } // end switch(key)
                   case 0x7:
@@ -20470,11 +20474,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x48\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x48\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x48\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x48\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x48\x42\x68";
                     } // end switch(key)
                   case 0x8:
@@ -20835,11 +20839,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x49\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x49\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x49\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x49\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x49\x42\x68";
                     } // end switch(key)
                   case 0x9:
@@ -21200,11 +21204,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x4a\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x4a\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x4a\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x4a\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x4a\x42\x68";
                     } // end switch(key)
                   case 0xa:
@@ -21565,11 +21569,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x4d\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x4d\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x4d\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x4d\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x4d\x42\x68";
                     } // end switch(key)
                   case 0xb:
@@ -21930,11 +21934,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x4e\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x4e\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x4e\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x4e\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x4e\x42\x68";
                     } // end switch(key)
                   case 0xc:
@@ -22295,11 +22299,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x4b\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x4b\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x4b\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x4b\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x4b\x42\x68";
                     } // end switch(key)
                   case 0xd:
@@ -22660,11 +22664,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x4c\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x4c\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x4c\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x4c\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x4c\x42\x68";
                     } // end switch(key)
                   case 0xe:
@@ -23025,11 +23029,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x4f\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x4f\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x4f\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x4f\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x4f\x42\x68";
                     } // end switch(key)
                   case 0xf:
@@ -23390,11 +23394,11 @@ key_lookup(uint8_t key, KeyboardMode mode, uint8_t mods, uint8_t action) {
                         return "\x05\x4b\x74\x50\x42\x63";
                       case 178: // LEFT_SUPER
                         return "\x05\x4b\x74\x50\x42\x64";
-                      case 180: // RIGHT_CONTROL
+                      case 181: // RIGHT_CONTROL
                         return "\x05\x4b\x74\x50\x42\x66";
-                      case 181: // RIGHT_ALT
+                      case 182: // RIGHT_ALT
                         return "\x05\x4b\x74\x50\x42\x67";
-                      case 182: // RIGHT_SUPER
+                      case 183: // RIGHT_SUPER
                         return "\x05\x4b\x74\x50\x42\x68";
                     } // end switch(key)
               }  // end switch(mods)

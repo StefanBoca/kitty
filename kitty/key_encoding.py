@@ -193,7 +193,9 @@ ENCODING = {
     'CYRILLIC YU': 'CK',
     'CYRILLIC YA': 'CL',
     'CYRILLIC IO': 'CM',
-    'CIRCUMFLEX': 'CN'
+    'CIRCUMFLEX': 'CN',
+    'LEFT HYPER': 'CO',
+    'RIGHT HYPER': 'CP'
 }
 KEY_MAP = {
     32: 'A',
@@ -375,13 +377,14 @@ KEY_MAP = {
     341: 'Bb',
     342: 'Bc',
     343: 'Bd',
-    344: 'Be',
-    345: 'Bf',
-    346: 'Bg',
-    347: 'Bh',
-    348: 'Bk'
+    344: 'CO',
+    345: 'Be',
+    346: 'Bf',
+    347: 'Bg',
+    348: 'Bh',
+    349: 'CP',
+    350: 'Bk'
 }
-# END_ENCODING }}}
 
 text_keys = (
     string.ascii_uppercase + string.ascii_lowercase + string.digits +
@@ -464,7 +467,7 @@ class KeyEvent(NamedTuple):
 PRESS: int = 1
 REPEAT: int = 2
 RELEASE: int = 4
-SHIFT, ALT, CTRL, SUPER = 1, 2, 4, 8
+SHIFT, ALT, CTRL, SUPER, HYPER = 1, 2, 4, 8, 0x40
 type_map = {'p': PRESS, 't': REPEAT, 'r': RELEASE}
 rtype_map = {v: k for k, v in type_map.items()}
 mod_map = {c: i for i, c in enumerate('ABCDEFGHIJKLMNOP')}
@@ -480,6 +483,7 @@ config_mod_map = {
     '⌘': SUPER,
     'CMD': SUPER,
     'SUPER': SUPER,
+    'HYPER': HYPER,
     'CTRL': CTRL,
     'CONTROL': CTRL
 }
@@ -533,6 +537,8 @@ def decode_key_event_as_window_system_key(text: str) -> Optional[WindowSystemKey
         mods |= defines.GLFW_MOD_ALT
     if k.mods & SUPER:
         mods |= defines.GLFW_MOD_SUPER
+    if k.mods & HYPER:
+        mods |= defines.GLFW_MOD_HYPER
     if k.mods & SHIFT:
         mods |= defines.GLFW_MOD_SHIFT
     return WindowSystemKeyEvent(glfw_code, mods, action)

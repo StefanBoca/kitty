@@ -390,6 +390,7 @@ ibus_key_state(unsigned int glfw_modifiers, int action) {
     M(ALT, IBUS_MOD1_MASK);
     M(NUM_LOCK, IBUS_MOD2_MASK);
     M(SUPER, IBUS_MOD4_MASK);
+    M(HYPER, IBUS_MOD3_MASK);
 #undef M
     return ans;
 }

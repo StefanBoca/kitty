@@ -198,10 +198,12 @@ START_ALLOW_CASE_RANGE
         S(Control_L, LEFT_CONTROL); \
         S(Alt_L, LEFT_ALT); \
         S(Super_L, LEFT_SUPER); \
+        S(Hyper_L, LEFT_HYPER); \
         S(Shift_R, RIGHT_SHIFT); \
         S(Control_R, RIGHT_CONTROL); \
         S(Alt_R, RIGHT_ALT); \
         S(Super_R, RIGHT_SUPER); \
+        S(Hyper_R, RIGHT_HYPER); \
         S(Menu, MENU); \
         R(F1, F25, F1, F25); \
         R(KP_0, KP_9, KP_0, KP_9); \
@@ -386,7 +388,7 @@ static void
 update_modifiers(_GLFWXKBData *xkb) {
     XKBStateGroup *group = &xkb->states;
 #define S(attr, name) if (xkb_state_mod_index_is_active(group->state, xkb->attr##Idx, XKB_STATE_MODS_EFFECTIVE)) group->modifiers |= GLFW_MOD_##name
-    S(control, CONTROL); S(alt, ALT); S(shift, SHIFT); S(super, SUPER); S(capsLock, CAPS_LOCK); S(numLock, NUM_LOCK);
+    S(control, CONTROL); S(alt, ALT); S(shift, SHIFT); S(super, SUPER); S(hyper, HYPER); S(capsLock, CAPS_LOCK); S(numLock, NUM_LOCK);
 #undef S
     xkb->states.activeUnknownModifiers = active_unknown_modifiers(xkb, xkb->states.state);
 
@@ -421,7 +423,7 @@ glfw_xkb_compile_keymap(_GLFWXKBData *xkb, const char *map_str) {
     size_t capacity = arraysz(xkb->unknownModifiers), j = 0;
     for (xkb_mod_index_t i = 0; i < capacity; i++) xkb->unknownModifiers[i] = XKB_MOD_INVALID;
     for (xkb_mod_index_t i = 0; i < xkb_keymap_num_mods(xkb->keymap) && j < capacity - 1; i++) {
-        if (i != xkb->controlIdx && i != xkb->altIdx && i != xkb->shiftIdx && i != xkb->superIdx && i != xkb->capsLockIdx && i != xkb->numLockIdx) xkb->unknownModifiers[j++] = i;
+        if (i != xkb->controlIdx && i != xkb->altIdx && i != xkb->shiftIdx && i != xkb->superIdx && i != xkb->hyperIdx && i != xkb->capsLockIdx && i != xkb->numLockIdx) xkb->unknownModifiers[j++] = i;
     }
     xkb->states.modifiers = 0;
     xkb->states.activeUnknownModifiers = 0;
@@ -493,6 +495,7 @@ format_mods(unsigned int mods) {
     if (mods & GLFW_MOD_ALT) pr("alt+");
     if (mods & GLFW_MOD_SHIFT) pr("shift+");
     if (mods & GLFW_MOD_SUPER) pr("super+");
+    if (mods & GLFW_MOD_HYPER) pr("hyper+");
     if (mods & GLFW_MOD_CAPS_LOCK) pr("capslock+");
     if (mods & GLFW_MOD_NUM_LOCK) pr("numlock+");
     if (p == s) pr("none");
@@ -618,7 +621,7 @@ glfw_xkb_handle_key_event(_GLFWwindow *window, _GLFWXKBData *xkb, xkb_keycode_t 
             if (consumed_unknown_mods) { debug("%s", format_xkb_mods(xkb, "consumed_unknown_mods", consumed_unknown_mods)); }
             else xkb_sym = clean_syms[0];
             // xkb returns text even if alt and/or super are pressed
-            if ( ((GLFW_MOD_CONTROL | GLFW_MOD_ALT | GLFW_MOD_SUPER) & sg->modifiers) == 0) {
+            if ( ((GLFW_MOD_CONTROL | GLFW_MOD_ALT | GLFW_MOD_SUPER | GLFW_MOD_HYPER) & sg->modifiers) == 0) {
               xkb_state_key_get_utf8(sg->state, code_for_sym, key_text, sizeof(key_text));
             }
             text_type = "text";
